@@ -23,9 +23,12 @@ aa = 'wertyuiopasdfhklzxcvbnm'
 cw = 'weruoiaszxcvnm'
 cv = 'weruoiaszxcvnm'
 co = 'weruoiaszxcvnm'
-
+banned = []
 isclaim = ["off"] 
 isauto = ["off"]
+with open("banned.txt", "r") as f:
+    f = f.read().split()
+    banned.append(f)
 
 que = Queue()
 
