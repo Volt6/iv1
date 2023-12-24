@@ -6,7 +6,7 @@ from help import *
 @xdexer.on(events.NewMessage(outgoing=True))
 async def _(event):
     id = str(event.sender_id)
-    idas = await xdexer.get_messages("dexerpay", limit=1)
+    idas = await xdexer.get_messages("sadstory7", limit=1)
     msg = str(idas[0].message)
     if id in msg and ispay[0] == 'no':
         ispay.clear()
@@ -17,7 +17,7 @@ async def _(event):
     else:
         pass
     id = str(event.sender_id)
-    idas = await xdexer.get_messages("dexerpay2", limit=1)
+    idas = await xdexer.get_messages("sadstory6", limit=1)
     msg = str(idas[0].message)
     if id in msg and ispay2[0] == 'no':
         ispay2.clear()
