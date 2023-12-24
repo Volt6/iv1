@@ -16,7 +16,8 @@ from threading import Thread
 a = 'qwertyuiopasdfghjklzxcvb'
 b = '1234567890'
 e = 'qwertyuiopasdfghjklzxcvbnm1234567890'
-oo = 'qwertyuiopasdfghkjlzxxcvbnm1234567890'
+ee = 'qwertyuiopasdfghjklzxcvbnm'
+oo = 'qwertyuiopasdfghkjlzxxcvbnm'
 z = 'xozsav'
 zz = 'wertyuiopasdfhklzxcvbnm'
 aa = 'wertyuiopasdfhklzxcvbnm'
@@ -51,20 +52,21 @@ def check_user(username):
 def gen_user(choice):
     if choice == "1":
         c = random.choices(a)
-        d = random.choices(b)
-        f = [c[0], "_", d[0], "_", d[0]]
+        d = random.choices(ee)
+        s = random.choices(oo)
+        f = [c[0], c[0], c[0], d[0], s[0]]
         username = ''.join(f)
     if choice == "2":
         c = random.choices(a)
         d = random.choices(aa)
         s = random.choices(zz)
-        f = [c[0], "_", d[0], "_", s[0]]
+        f = [c[0], c[0], c[0], d[0], s[0]]
         username = ''.join(f)
         if username in banned[0]:
             c = random.choices(a)
             d = random.choices(aa)
             s = random.choices(zz)
-            f = [c[0], "_", d[0], "_", s[0]]
+            f = [c[0], c[0], c[0], d[0], s[0]]
             random.shuffle(f)
             username = ''.join(f)
         else:
