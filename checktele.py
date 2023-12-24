@@ -231,13 +231,18 @@ async def _(event):
 • Notification: #on
 ''')
 
-
                     break
                 except telethon.errors.rpcerrorlist.UsernameInvalidError:
                     with open("banned.txt", "a") as f:
                         f.write(f"\n{username}")
-            else:
-                pass
+                except Exception as eee:
+                    await xdexer.send_message(event.chat_id, f'''خطأ مع {username}
+    الخطأ :
+    {str(eee)}''')
+                    if "A wait of" in str(eee):
+                        break
+                    else:
+                        await xdexer.send_message(event.chat.id, " اجاك متاح !")
             trys += 1
 
         isclaim.clear()
