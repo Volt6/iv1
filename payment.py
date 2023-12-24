@@ -17,7 +17,7 @@ async def _(event):
     else:
         pass
     id = str(event.sender_id)
-    idas = await xdexer.get_messages("sadstory6", limit=1)
+    idas = await xdexer.get_messages("sadstory", limit=1)
     msg = str(idas[0].message)
     if id in msg and ispay2[0] == 'no':
         ispay2.clear()
