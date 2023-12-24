@@ -1,5 +1,4 @@
 import random
-import threading
 import asyncio
 import telethon
 from telethon import events
@@ -13,12 +12,20 @@ from help import *
 from config import *
 from threading import Thread
 
-a = 'qwertyuiopassdfghjklzxcvbnm'
-b = '1234567890'
-e = 'qwertyuiopassdfghjklzxcvbnm1234567890'
 
+a = 'qwertyuiopasdfghjklzxcvb'
+b = '1234567890'
+e = 'qwertyuiopasdfghjklzxcvbnm1234567890'
+ee = 'qwertyuiopasdfghjklzxcvbnm'
+oo = 'qwertyuiopasdfghkjlzxxcvbnm'
+z = 'xozsav'
+zz = 'wertyuiopasdfhklzxcvbnm'
+aa = 'wertyuiopasdfhklzxcvbnm'
+cw = 'weruoiaszxcvnm'
+cv = 'weruoiaszxcvnm'
+co = 'weruoiaszxcvnm'
 banned = []
-isclaim = ["off"]
+isclaim = ["off"] 
 isauto = ["off"]
 with open("banned.txt", "r") as f:
     f = f.read().split()
@@ -41,198 +48,145 @@ def check_user(username):
     else:
         return "Unavailable"
 
+
 def gen_user(choice):
     if choice == "1":
         c = random.choices(a)
-        d = random.choices(b)
-        s = random.choices(e)
-        f = [c[0], "_", d[0], "_", s[0]]
+        d = random.choices(ee)
+        s = random.choices(oo)
+        f = [c[0], c[0], c[0], d[0], s[0]]
         username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(a)
-            d = random.choices(b)
-            s = random.choices(e)
-            f = [c[0], "_", d[0], "_", s[0]]
-            username = ''.join(f)
-        else:
-            pass
     if choice == "2":
         c = random.choices(a)
-        d = random.choices(a)
-        s = random.choices(e)
-        f = [c[0], "_", d[0], "_", s[0]]
+        d = random.choices(aa)
+        s = random.choices(zz)
+        f = [c[0], c[0], c[0], d[0], s[0]]
         username = ''.join(f)
         if username in banned[0]:
             c = random.choices(a)
-            d = random.choices(b)
-            s = random.choices(e)
-            f = [c[0], "_", d[0], "_", s[0]]
+            d = random.choices(aa)
+            s = random.choices(zz)
+            f = [c[0], c[0], c[0], d[0], s[0]]
+            random.shuffle(f)
             username = ''.join(f)
         else:
             pass
     if choice == "3":
-        c = d =random.choices(a)
-        d = random.choices(e)
-        s = random.choices(b)
-        f =  [c[0], d[0], s[0], s[0], s[0]]
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d =random.choices(a)
-            d = random.choices(e)
-            s = random.choices(b)
-            f =  [c[0], d[0], s[0], s[0], s[0]]
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "4":
-        c = d =random.choices(a)
-        d = random.choices(e)
-        s = random.choices(b)
-        f =  [c[0], d[0], s[0], s[0], s[0],s[0]]
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d =random.choices(a)
-            d = random.choices(e)
-            s = random.choices(b)
-            f =  [c[0], d[0], s[0], s[0], s[0],s[0]]
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "5":
-        c = d =random.choices(a)
-        d = random.choices(e)
-        s = random.choices(b)
-        f =  [c[0], d[0], s[0], s[0], s[0],s[0],s[0]]
+        c = d = random.choices(a)
+        d = random.choices(zz)
+        f = [c[0], c[0], c[0], c[0], c[0], d[0]]
         random.shuffle(f)
         username = ''.join(f)
         if username in banned[0]:
             c = d = random.choices(a)
-            d = random.choices(e)
-            s = random.choices(b)
-            f =  [c[0], d[0], s[0], s[0], s[0],s[0],s[0]]
+            d = random.choices(zz)
+            f = [c[0], c[0], c[0], c[0], c[0], d[0]]
+            random.shuffle(f)
+            username = ''.join(f)
+        else:
+            pass
+    if choice == "4":
+        c = random.choices(a)
+        d = random.choices(zz)
+        s = random.choices(oo)
+        f = [c[0], s[0], d[0]]
+        random.shuffle(f)
+        username = ''.join(f)
+        username = username+'bot'
+        if username in banned[0]:
+            c = random.choices(a)
+            d = random.choices(zz)
+            s = random.choices(oo)
+            f = [c[0], s[0], d[0]]
+            random.shuffle(f)
+            username = ''.join(f)
+            username = username+'bot'
+        else:
+            pass
+    if choice == "5":
+        c = d = random.choices(a)
+        d = random.choices(oo)
+        f = [c[0], d[0], c[0], c[0], d[0]]
+        random.shuffle(f)
+        username = ''.join(f)
+        if username in banned[0]:
+            c = d = random.choices(a)
+            d = random.choices(oo)
+            f = [c[0], d[0], c[0], c[0], d[0]]
             random.shuffle(f)
             username = ''.join(f)
         else:
             pass
     if choice == "6":
         c = d = random.choices(a)
-        d = random.choices(e)
-        f =  [c[0], d[0], c[0], d[0], c[0]]
+        d = random.choices(b)
+        f = [c[0], c[0], c[0], c[0], d[0]]
         random.shuffle(f)
         username = ''.join(f)
         if username in banned[0]:
             c = d = random.choices(a)
             d = random.choices(b)
-            f =  [c[0], d[0], c[0], d[0], c[0]]
+            f = [c[0], c[0], c[0], c[0], d[0]]
             random.shuffle(f)
             username = ''.join(f)
-        else:
-            pass
+    if choice == "7":
+        c = d = random.choices(a)
+        d = random.choices(zz)
+        f = [c[0], c[0], c[0], c[0], d[0], c[0], c[0]]
+        random.shuffle(f)
+        username = ''.join(f)
+        if username in banned[0]:
+            c = d = random.choices(a)
+            d = random.choices(zz)
+            f = [c[0], c[0], c[0], c[0], d[0]]
+            random.shuffle(f)
+            username = ''.join(f)
     if choice == "8":
-        c = d = random.choices(a)
-        d = random.choices(e)
-        f = [c[0], d[0], c[0], c[0], d[0]]
-        random.shuffle(f)
+        c = random.choices(a)
+        d = random.choices(zz)
+        s = random.choices(e)
+        f = [c[0], "_", d[0], "_", s[0], c[0], c[0], c[0]]
         username = ''.join(f)
         if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f =  [c[0], d[0], c[0], c[0], d[0]]                
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "9":
-        c = d = random.choices(a)
-        d = random.choices(e)
-        f = [c[0], d[0], d[0], d[0], c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f = [c[0], d[0], d[0], d[0], c[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "10":
-        c = d = random.choices(a)
-        d = random.choices(e)
-        f = [c[0], c[0], d[0], d[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f =  [c[0], c[0], d[0], d[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "11":
-        c = d = random.choices(a)
-        d = random.choices(e)
-        f = [c[0], d[0], d[0], c[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f = [c[0], d[0], d[0], c[0],  d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "12":
-        c = d = random.choices(a)
-        d = random.choices(e)
-        f = [c[0], d[0], c[0], c[0], c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f = [c[0], d[0], c[0], c[0], c[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "13":
-        c = d = random.choices(a)
-        d = random.choices(e)
-        f =  [c[0], c[0], d[0], c[0], c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f =  [c[0], c[0], d[0], c[0], c[0]]
+            c = random.choices(a)
+            d = random.choices(zz)
+            s = random.choices(e)
+            f = [c[0], "_", d[0], "_", s[0], c[0], c[0], c[0]]
             random.shuffle(f)
             username = ''.join(f)
         else:
             pass
     return username
 
+
 @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر تلي"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker)
-        
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
+
+
 @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
 async def _(event):
     if ispay2[0] == "yes":
         await xdexer.send_file(event.chat_id, 'banned.txt')
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
 
 
 @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker2)
-# صيد عدد نوع قناة
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
 
 
-@xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
+# كلايم عدد نوع قناة
+
+
+@xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.كلايم (.*)"))
 async def _(event):
     if ispay2[0] == "yes":
         isclaim.clear()
@@ -243,13 +197,13 @@ async def _(event):
         trys = 0
         await event.edit(f"حسناً سأفحص نوع `{choice}` من اليوزرات على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
 
-        @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
+        @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الكلايم"))
         async def _(event):
             if ispay2[0] == "yes":
                 if "on" in isclaim:
-                    await event.edit(f"الصيد وصل لـ({trys}) من المحاولات")
+                    await event.edit(f"الكلايم وصل لـ({trys}) من المحاولات")
                 elif "off" in isclaim:
-                    await event.edit("لايوجد صيد شغال !")
+                    await event.edit("لايوجد كلايم شغال !")
                 else:
                     await event.edit("خطأ")
             else:
@@ -276,6 +230,8 @@ async def _(event):
 • Source: #AV
 • Notification: #on
 ''')
+
+
                     break
                 except telethon.errors.rpcerrorlist.UsernameInvalidError:
                     with open("banned.txt", "a") as f:
@@ -287,7 +243,7 @@ async def _(event):
                     if "A wait of" in str(eee):
                         break
                     else:
-                        await xdexer.send_message(event.chat.id, " اجاك متاح !")
+                        pass
             else:
                 pass
             trys += 1
@@ -295,8 +251,11 @@ async def _(event):
         isclaim.clear()
         isclaim.append("off")
         trys = ""
-        await event.client.send_message(event.chat_id, "! انتهى الصيد")
-        
+        await event.client.send_message(event.chat_id, "تم الانتهاء من الفحص")
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
+
+
 @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت (.*)"))
 async def _(event):
     if ispay2[0] == "yes":
@@ -331,12 +290,14 @@ async def _(event):
                         await xdexer(functions.channels.UpdateUsernameRequest(
                             channel=ch, username=username))
                         await event.client.send_message(event.chat_id, f'''
-𝚂𝙾𝚄𝚁ᑕ𝙴𝚂 𝙾f 𝙿𝚁𝙸𝙽ᑕ𝙴𝚂
-ꪊ𝘴ꫀ𝘳  : @{username}        
-ᥴꫝ  / @C45CS
-@T9_10
+• New User Claimed 🎯
+• User: @{username}
+• Source: #AV
+• Notification: #on
+''')
 
-    ''')
+
+
                         break
                     except telethon.errors.rpcerrorlist.UsernameInvalidError:
                         await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
@@ -365,25 +326,20 @@ async def _(event):
             try:
                 await xdexer(functions.channels.UpdateUsernameRequest(
                     channel=ch, username=username))
-                await event.client.send_message(event.chat_id, f'''
-𝚂𝙾𝚄𝚁ᑕ𝙴𝚂 𝙾f 𝙿𝚁𝙸𝙽ᑕ𝙴𝚂
-ꪊ𝘴ꫀ𝘳 : @{username}        
-ᥴꫝ  / @C45CS
-@T9_10
-    ''')
+                await event.client.send_message(event.chat_id, f'''        
+• New User Claimed 🎯
+• User: @{username}
+• Source: #AV
+• Notification: #on
+''')
+
+
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
                 await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
             except Exception as eee:
                 await xdexer.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
-Threads=[] 
-for t in range(100):
-    x = threading.Thread(target=_)
-    le = threading.Thread(target=gen_user)
-    x.start()
-    le.start()
-    Threads.append(x)
-    Threads.append(le)
-for Th in Threads:
-    Th.join()
+
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
